@@ -7,7 +7,11 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('calendar', { path: '/'})
+  this.route('login');
+  this.route('index');
+  this.route('session', { path: '/'}, function() {
+    this.route('calendar', { path: '/'} );
+  });
 });
 
 export default Router;

@@ -1,4 +1,20 @@
+import Mirage from 'ember-cli-mirage';
+import Ember from 'ember';
+
 export default function() {
+
+  this.namespace = '/api';
+
+  this.post('/token-auth', (schema, request) => {
+    const req = JSON.parse(request.requestBody);
+    const pw = Ember.get(req, 'password');
+
+    if(pw === 'test1234') {
+      return new Mirage.Response(201, {}, { token: 'hotdog' });
+    } else {
+      return new Mirage.Response(404, {}, req);
+    }
+  });
 
   this.get('/lessons', (schema) => {
     return schema.lessons.all();
