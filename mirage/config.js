@@ -18,7 +18,14 @@ export default function() {
 
   this.get('/lessons', (schema) => {
     return schema.lessons.all();
-  })
+  });
+
+  this.get('/instructors', (schema) => {
+    return schema.instructors.all();
+  });
+
+  this.get('/users');
+  this.get('/users/:id');
 
   // These comments are here to help you get started. Feel free to delete them.
 

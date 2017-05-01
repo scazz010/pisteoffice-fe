@@ -1,0 +1,6 @@
+<div class="{{styles.header}}">
+  <div class="{{styles.instructorHeader}}"></div>
+  {{#each days as |day|}}
+    <div class="{{styles.day}}">{{moment-format day "ddd"}} ({{moment-format day "D MMM" }})</div>
+  {{/each}}
+</div>

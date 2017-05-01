@@ -1,1 +1,8 @@
 yolo
+{{lessons.length}}
+
+{{lesson-calendar/header days=daysOfWeek}}
+
+{{#each instructors as |instructor|}}
+  {{instructor.user.email}}
+{{/each}}

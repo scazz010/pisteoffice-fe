@@ -1,7 +1,8 @@
 import Route from 'ember-route';
 import service from 'ember-service/inject'
+import RSVP from 'rsvp';
 
-export default Ember.Route.extend({
+export default Route.extend({
   moment: service(),
 
   beforeModel() {
@@ -9,6 +10,13 @@ export default Ember.Route.extend({
   },
 
   model() {
-    return this.get('store').findAll('lesson');
+    return RSVP.hash({
+      instructors: this.get('store').findAll('instructor')
+    });
+  },
+
+  setupController(controller, model) {
+    controller.setProperties(model);
+    this._super(...arguments);
   }
 });
