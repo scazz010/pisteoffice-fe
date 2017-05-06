@@ -1,8 +1,9 @@
 import Component from 'ember-component';
-import on from 'ember-evented/on';
 import computed from 'ember-computed';
 
-export default Component.extend({
+import ResizeAware from 'ember-resize/mixins/resize-aware';
+
+export default Component.extend(ResizeAware, {
   // Params
   account: null,
   instructor: null,
@@ -16,6 +17,7 @@ export default Component.extend({
   // CPs
   workingDayDurationInMS: computed.oneWay('account.workingDayDurationInMS'),
   pxOfCalendar: computed('leftOffsetOfFirstTimeslot', 'rightOffsetOfLastTimeslot', function() {
+    console.log('recomputing fx of calendar');
     return this.get('rightOffsetOfLastTimeslot') - this.get('leftOffsetOfFirstTimeslot');
   }),
   widthOf1MSInPx: computed('workingDayDurationInMS', 'pxOfCalendar', function() {
@@ -25,8 +27,12 @@ export default Component.extend({
 
   didInsertElement() {
     this.setCalendarRowOffsets();
+    this._super(...arguments);
   },
+
   debouncedDidResize() {
+    // maybe we could move this into the header - or somewhere where it's
+    // only computed once, not for every instructor row
     this.setCalendarRowOffsets();
   },
 

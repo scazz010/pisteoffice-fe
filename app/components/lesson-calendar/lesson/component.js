@@ -1,6 +1,8 @@
 import Component from 'ember-component';
 import computed from 'ember-computed';
 
+import moment from 'moment';
+
 export default Component.extend({
   // Params
   lesson: null,
@@ -11,20 +13,18 @@ export default Component.extend({
 
   tagName: '',
 
-  width: Ember.computed('lesson.duration', 'widthOf1MSInPx', function() {
+  width: computed('lesson.duration', 'widthOf1MSInPx', function() {
     const lessonDuration = this.get('lesson.duration');
+    const widthOf1MSInPx = this.get('widthOf1MSInPx');
 
-
-    if (!lessonDuration || !this.get('widthOf1MSInPx')) {
+    if (!lessonDuration || !widthOf1MSInPx) {
       return 0;
     }
 
-    //const durationInMS = lessonDuration.asMilliseconds();
-    return lessonDuration * this.get('widthOf1MSInPx');
+    return lessonDuration * widthOf1MSInPx;
   }),
 
-  offset: Ember.computed('leftOffsetOffFirstTimeslot', 'pxWidthOf1MS', 'lesson.startTime', function() {
-
+  offset: computed('leftOffsetOffFirstTimeslot', 'widthOf1MSInPx', 'lesson.startTime', function() {
     const durationBeforeLessonsBegin = moment.duration(this.get('account.workingDayStartTime'));
 
     const lessonStartTime = this.get('lesson.startTime');
