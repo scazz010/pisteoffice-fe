@@ -7,6 +7,7 @@ export default Component.extend({
   // Params
   weekStartDate: null,
   instructors: null,
+  account: null,
 
   // Services
   store: service(),
@@ -22,15 +23,26 @@ export default Component.extend({
   },
 
   // CPs
-  lessons: computed('cachedLessons.[]', 'weekStartDate', function() {
+  lessonsByInstructorId: computed('cachedLessons.[]', 'weekStartDate', function() {
     const weekStartDate = this.get('weekStartDate');
     const weekEndDate = weekStartDate.clone().add(1, 'week');
 
-    return this.get('cachedLessons').filter(lesson => {
+    let lessons = {};
+
+    this.get('instructors').forEach(instructor => {
+      lessons[instructor.get('id')] = [];
+    });
+
+    this.get('cachedLessons').filter(lesson => {
       let lessonStart = lesson.get('startTime');
       return true;
       //return lessonStart && lessonStart.isAfter(weekStartDate) && lessonStart.isBefore(weekEndDate);
+    }).forEach(lesson => {
+      const instructorId = lesson.get('instructor.id');
+      lessons[instructorId].pushObject(lesson);
     });
+
+    return lessons || {};
   }),
 
   cachedLessons: computed(function() {

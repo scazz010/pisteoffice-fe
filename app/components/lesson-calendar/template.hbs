@@ -1,8 +1,12 @@
-yolo
-{{lessons.length}}
 
 {{lesson-calendar/header days=daysOfWeek}}
 
+{{lessons.count}}
+
 {{#each instructors as |instructor|}}
-  {{instructor.user.email}}
+  {{lesson-calendar/instructor-row
+    account=account
+    instructor=instructor
+    timePeriods=timePeriods
+    lessons=(get lessonsByInstructorId instructor.id)}}
 {{/each}}

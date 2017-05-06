@@ -11,7 +11,8 @@ export default Route.extend({
 
   model() {
     return RSVP.hash({
-      instructors: this.get('store').findAll('instructor')
+      instructors: this.get('store').findAll('instructor'),
+      account: this.get('store').createRecord('account')
     });
   },
 

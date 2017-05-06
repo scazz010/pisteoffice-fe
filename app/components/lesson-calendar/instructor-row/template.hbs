@@ -1,0 +1,16 @@
+<div class="{{styles.row}}">
+  <div class="{{styles.instructor}}">{{instructor.user.name}}</div>
+  {{#each timePeriods as |timePeriod|}}
+    <div class="{{styles.timePeriod}} timePeriod"> </div>
+  {{/each}}
+
+  {{#each lessons as |lesson|}}
+    {{lesson-calendar/lesson
+      lesson=lesson
+      leftOffsetOfFirstTimeslot=leftOffsetOfFirstTimeslot
+      widthOf1MSInPx=widthOf1MSInPx
+      workingDayDurationInMS=workingDayDurationInMS
+      account=account
+    }}
+  {{/each}}
+</div>

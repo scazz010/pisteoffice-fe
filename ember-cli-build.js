@@ -3,7 +3,6 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
-
     cssModules: {
       intermediateOutputPath: 'app/styles/app.scss',
 
@@ -14,6 +13,12 @@ module.exports = function(defaults) {
       postcssOptions: {
         syntax: require('postcss-scss')
       }
+    },
+
+    'ember-bootstrap': {
+      'bootstrapVersion': 3,
+      'importBootstrapFont': true,
+      'importBootstrapCSS': false
     }
   });
 
