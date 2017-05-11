@@ -1,0 +1,17 @@
+.index {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-right: 200px;
+
+  display: flex;
+  align-items: stretch;
+}
+
+.sidebar {
+  display: flex;
+  flex: 0 0 200px;
+}
+
+.content {
+  width: 100%;
+}

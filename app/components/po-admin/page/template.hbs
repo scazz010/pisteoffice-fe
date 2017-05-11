@@ -1,0 +1,8 @@
+<div class="{{styles.header}}">
+  <h3 class="{{styles.title}}">{{title}}</h3>
+  {{#if hasBlockParams}}
+    <div class="{{styles.buttons}}">
+      {{yield "buttons"}}
+    </div>
+  {{/if}}
+</div>

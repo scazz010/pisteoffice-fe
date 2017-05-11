@@ -1,1 +1,9 @@
-session{{outlet}}
+<header class="{{styles.header}}">
+  <nav class="{{styles.nav}}">
+    {{#link-to "session.calendar" class=styles.navItem}}<i class="left"></i>CAL{{/link-to}}
+    {{#link-to "session.admin" class=styles.navItem}}<i class="left"></i>ADM{{/link-to}}
+
+  </nav>
+</header>
+
+{{outlet}}

@@ -11,6 +11,10 @@ Router.map(function() {
   this.route('index');
   this.route('session', { path: '/'}, function() {
     this.route('calendar', { path: '/'} );
+
+    this.route('admin', function() {
+      this.route('instructors');
+    })
   });
 });
 
