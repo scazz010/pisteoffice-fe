@@ -1,0 +1,7 @@
+{{#sortable-group tagName="ul" onChange=(action "reorder") as |group|}}
+  {{#each instructors as |instructor|}}
+    {{#sortable-item tagName="li" model=instructor group=group handle=".iDragHandle"}}
+      <div class="iDragHandle">X</div>{{instructor.user.name}}
+    {{/sortable-item}}
+  {{/each}}
+{{/sortable-group}}
