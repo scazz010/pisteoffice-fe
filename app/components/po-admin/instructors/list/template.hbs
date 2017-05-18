@@ -1,7 +1,3 @@
-{{#sortable-group tagName="ul" onChange=(action "reorder") as |group|}}
-  {{#each instructors as |instructor|}}
-    {{#sortable-item tagName="li" model=instructor group=group handle=".iDragHandle"}}
-      <div class="iDragHandle">X</div>{{instructor.user.name}}
-    {{/sortable-item}}
-  {{/each}}
-{{/sortable-group}}
+{{#po-admin/reorderable-list model=orderedInstructors reorder=(action "reorder") as |instructor|}}
+  {{instructor.user.name}}
+{{/po-admin/reorderable-list}}

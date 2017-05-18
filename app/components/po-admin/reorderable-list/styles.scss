@@ -1,0 +1,39 @@
+.dragHandle {
+  cursor: move;
+  cursor: grab;
+  padding-right: 10px;
+  visibility: hidden;
+  min-height: 40px;
+  line-height: 40px;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+  min-height: 40px;
+  align-items: stretch;
+  border-bottom: solid 1px #1b6d85;
+  line-height: 40px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+
+  &:hover {
+    .dragHandle {
+      visibility: visible;
+    }
+    .row {
+      background-color: #e0e0f0;
+    }
+  }
+}
+
+.spacer {
+  min-height: 40px;
+}
