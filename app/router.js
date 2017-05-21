@@ -13,7 +13,10 @@ Router.map(function() {
     this.route('calendar', { path: '/'} );
 
     this.route('admin', function() {
-      this.route('instructors');
+      this.route('instructors', function() {
+        this.route('new');
+        this.route('edit', { path: '/:instructor_id' });
+      });
     })
   });
 });

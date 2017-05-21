@@ -1,0 +1,20 @@
+{{#po-admin/page title="Add Instructor" as |section|}}
+  {{po-admin/form/buttons/add text="Add" onAdd=(action "createInstructor")}}
+{{/po-admin/page}}
+
+{{#po-admin/form as |form|}}
+  {{#form.row}}
+    {{#form.label}}Name:{{/form.label}}
+    {{#form.inputContainer}}
+      {{input class="form-control" value=userChangeset.name}}
+    {{/form.inputContainer}}
+  {{/form.row}}
+
+  {{#form.row}}
+    {{#form.label}}Email:{{/form.label}}
+    {{#form.inputContainer}}
+      {{input class="form-control" value=userChangeset.email}}
+    {{/form.inputContainer}}
+  {{/form.row}}
+
+{{/po-admin/form}}
