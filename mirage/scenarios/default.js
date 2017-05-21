@@ -19,7 +19,7 @@ export default function(server) {
 
   // server.createList('post', 10);
 
-  let instructors = server.createList('instructor', 4, 'withUser');
+  let instructors = server.createList('instructor', 4);
 
   for (let i=0; i<10; i++) {
     const instructorId =  instructors[ randomNumber(instructors.length) ].id;

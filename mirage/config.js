@@ -27,6 +27,10 @@ export default function() {
   this.get('/users');
   this.get('/users/:id');
 
+  this.get('instructors');
+  this.get('instructors/:id');
+  this.post('/instructors'); // make displayOrder the bottom?
+
   // These comments are here to help you get started. Feel free to delete them.
 
   /*
