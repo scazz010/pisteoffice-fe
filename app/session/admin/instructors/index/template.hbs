@@ -1,6 +1,6 @@
 {{#po-admin/page title="Instructors" as |section|}}
   {{!#if (eq section "buttons")}}
-  {{link-to "Add" "session.admin.instructors.new" class="btn btn-primary"}}
+  {{po-admin/form/buttons/generic-link text="Add" route="session.admin.instructors.new"}}
     {{!po-admin/form/buttons/add url=(link-to "admin.instructors.new")}}
   {{!/if}}
 {{/po-admin/page}}
