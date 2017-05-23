@@ -17,10 +17,11 @@ export default Route.extend({
 
   actions: {
     willTransition(transition) {
-      if (this.controller.get('instructorChangeset.isPristine')) {
-        this.controller.get('instructor').rollbackAttributes();
+      if (!this.controller.get('instructorChangeset.isPristine')) {
+        alert("block");
+        return;
       }
-
+      this.controller.get('instructor').rollbackAttributes();
     }
   }
 });

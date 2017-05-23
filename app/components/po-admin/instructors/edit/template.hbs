@@ -1,0 +1,21 @@
+{{#po-admin/page title=title as |section|}}
+  {{po-admin/form/buttons/cancel route="session.admin.instructors"}}
+  {{po-admin/form/buttons/add text="Save" onAdd=onSave}}
+{{/po-admin/page}}
+
+{{#po-admin/form as |form|}}
+  {{#form.row}}
+    {{#form.label}}Name:{{/form.label}}
+    {{#form.inputContainer}}
+      {{input class="form-control" value=instructor.name}}
+    {{/form.inputContainer}}
+  {{/form.row}}
+
+  {{#form.row}}
+    {{#form.label}}Email:{{/form.label}}
+    {{#form.inputContainer}}
+      {{input class="form-control" value=instructor.email}}
+    {{/form.inputContainer}}
+  {{/form.row}}
+
+{{/po-admin/form}}

@@ -1,3 +1,7 @@
-{{#po-admin/reorderable-list model=orderedInstructors reorder=(action "reorder") as |instructor|}}
-  {{instructor.name}}
+{{#po-admin/reorderable-list
+  model=orderedInstructors
+  reorder=(action "reorder")
+  editRoute="session.admin.instructors.edit"
+  as |instructor|}}
+    {{instructor.name}}
 {{/po-admin/reorderable-list}}

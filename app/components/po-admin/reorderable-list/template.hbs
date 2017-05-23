@@ -1,13 +1,12 @@
-<div class="{{styles.spacer}}"></div>
-
 {{#sortable-group tagName="ul" onChange=reorder as |group|}}
   {{#each model as |listItem|}}
     {{#sortable-item tagName="li" model=listItem group=group handle=".iDragHandle"}}
-        <i class="fa fa-arrows-v iDragHandle {{styles.dragHandle}}"></i>
+      <i class="fa fa-arrows-v iDragHandle {{styles.dragHandle}}"></i>
+      {{#link-to editRoute listItem class=styles.editModelLink}}
         <div class="{{styles.row}}">
           {{yield listItem}}
         </div>
-
+      {{/link-to}}
     {{/sortable-item}}
   {{/each}}
 {{/sortable-group}}
