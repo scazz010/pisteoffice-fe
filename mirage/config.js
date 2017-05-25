@@ -21,6 +21,8 @@ export default function() {
   });
   this.get('lessons/:id');
 
+  this.get('lesson-types');
+
   this.get('/users');
   this.get('/users/:id');
 

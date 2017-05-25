@@ -1,0 +1,13 @@
+{{#po-admin/page title="Lesson types" as |section|}}
+  {{po-admin/form/buttons/generic-link text="Add" route="session.admin.instructors.new"}}
+{{/po-admin/page}}
+
+{{#po-admin/reorderable-list
+  model=model
+  reorder=(action "reorder")
+  editRoute="session.admin.instructors.edit"
+  emptyMessage="You have no lesson types yet. To get started, click the add button"
+as |lessonType|}}
+
+  {{lessonType.name}}
+{{/po-admin/reorderable-list}}

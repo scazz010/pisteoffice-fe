@@ -21,7 +21,10 @@ Router.map(function() {
         this.route('new');
         this.route('edit', { path: '/:instructor_id' });
       });
-    })
+      this.route('lessonTypes', { path: '/lesson-types'}, function () {
+
+      });
+    });
   });
 });
 

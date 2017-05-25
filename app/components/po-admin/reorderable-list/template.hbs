@@ -8,5 +8,9 @@
         </div>
       {{/link-to}}
     {{/sortable-item}}
+  {{else}}
+    <div local-class="empty-list">
+      {{emptyMessage}}
+    </div>
   {{/each}}
 {{/sortable-group}}
