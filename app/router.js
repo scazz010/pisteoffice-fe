@@ -12,7 +12,9 @@ Router.map(function() {
   this.route('session', { path: '/'}, function() {
     this.route('logout');
 
-    this.route('calendar', { path: '/'} );
+    this.route('calendar', { path: '/'}, function() {
+      this.route('info', { path: '/:lesson_id'});
+    });
 
     this.route('admin', function() {
       this.route('instructors', function() {

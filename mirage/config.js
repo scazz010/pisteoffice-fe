@@ -19,10 +19,7 @@ export default function() {
   this.get('/lessons', (schema) => {
     return schema.lessons.all();
   });
-
-  this.get('/instructors', (schema) => {
-    return schema.instructors.all();
-  });
+  this.get('lessons/:id');
 
   this.get('/users');
   this.get('/users/:id');
