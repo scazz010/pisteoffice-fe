@@ -1,7 +1,11 @@
-Test
+  <div local-class="calendar">
+    {{lesson-calendar
+      instructors=instructors
+      weekStartDate=weekStartDate
+      account=account
+    }}
+  </div>
 
-{{lesson-calendar
-  instructors=instructors
-  weekStartDate=weekStartDate
-  account=account
-}}
+  <div local-class="info-menu">
+    Woah there - this is the info menu!
+  </div>
