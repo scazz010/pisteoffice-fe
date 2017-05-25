@@ -1,7 +1,25 @@
-<form {{action 'authenticate' on='submit'}}>
-    <label for="identification">Login</label>
-  {{input id='identification' placeholder='Enter Login' value=identification}}
-    <label for="password">Password</label>
-  {{input id='password' placeholder='Enter Password' type='password' value=password}}
-    <button type="submit">Login</button>
-</form>
+<div local-class="page">
+  <div local-class="container">
+    <div local-class="row"><h3>Welcome to the piste office</h3></div>
+
+    <form {{action 'authenticate' on='submit'}}>
+      <div local-class="row">
+        <label for="identification" local-class="labelIcon user"></label>
+        {{input local-class="input" id="identification" placeholder="Email address" type="email" value=identification}}
+      </div>
+
+      <div local-class="row">
+      <label for="password" local-class="labelIcon lock"></label>
+      {{input id='password' placeholder='Enter Password' type='password' value=password local-class="input"}}
+      </div>
+
+      <div local-class="row">
+        <button type="submit" local-class="login">Login</button>
+      </div>
+
+      {{#if error}}
+        <div local-class="row error-message"><h4>Email or password was incorrect</h4></div>
+      {{/if}}
+    </form>
+  </div>
+</div>

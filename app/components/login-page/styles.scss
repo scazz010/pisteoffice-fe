@@ -1,0 +1,65 @@
+$itemPadding: 12px;
+
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+}
+
+.container {
+  display: flex;
+  width: 450px;
+  flex-direction: column;
+  padding-top: 150px;
+}
+
+.row {
+  padding: 15px 25px 0;
+  display: flex;
+}
+
+.labelIcon {
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  background-color: #222222;
+  padding: $itemPadding;
+  margin: 0;
+}
+
+.input {
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  width: 100%;
+  margin: 0;
+  padding: $itemPadding;
+  outline: 0;
+  background-color: #EEEEEE;
+  -webkit-box-shadow: 0 0 0 30px #EEEEEE inset;
+}
+
+.login {
+  border-radius: 5px;
+  width: 100%;
+  padding: $itemPadding;
+  background-color: #2B81AF;
+  color: #EEEEEE;
+  font-weight: bold;
+}
+
+.user:before {
+  content: '\f007';
+  font: 14px fontawesome;
+  color: #5b5b5b;
+}
+
+.lock:before {
+  content: '\f023';
+  font: 14px fontawesome;
+  color: #5b5b5b;
+}
+
+.error-message {
+  color: #ff3d46;
+  justify-content: center;
+}

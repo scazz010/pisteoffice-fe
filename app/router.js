@@ -10,6 +10,8 @@ Router.map(function() {
   this.route('login');
   this.route('index');
   this.route('session', { path: '/'}, function() {
+    this.route('logout');
+
     this.route('calendar', { path: '/'} );
 
     this.route('admin', function() {
