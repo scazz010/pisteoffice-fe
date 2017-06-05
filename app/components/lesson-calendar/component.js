@@ -72,13 +72,18 @@ export default Component.extend({
 
     let timePeriods = [];
 
-
     daysOfWeek.forEach(weekDay => {
       let timePeriod = weekDay.clone().hour(dayStartHour);
+      let isFirstOfDay = true;
 
       while(timePeriod.hour() < dayEndHour) {
-        timePeriods.push(timePeriod.clone());
+        timePeriods.push({
+          startTime: timePeriod.clone(),
+          isFirstOfDay: isFirstOfDay
+        });
+
         timePeriod.add(1, 'h');
+        isFirstOfDay = false;
       }
     });
 

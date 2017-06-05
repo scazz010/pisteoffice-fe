@@ -1,7 +1,6 @@
+<div local-class="calendar">
 
 {{lesson-calendar/header days=daysOfWeek}}
-
-{{lessons.count}}
 
 {{#each instructors as |instructor|}}
   {{lesson-calendar/instructor-row
@@ -10,3 +9,4 @@
     timePeriods=timePeriods
     lessons=(get lessonsByInstructorId instructor.id)}}
 {{/each}}
+</div>

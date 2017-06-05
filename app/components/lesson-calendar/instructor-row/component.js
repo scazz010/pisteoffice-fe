@@ -8,6 +8,10 @@ export default Component.extend(ResizeAware, {
   account: null,
   instructor: null,
   lessons: [],
+  timePeriods: [],
+
+  // HTML
+  tagName: '',
 
   // State
   leftOffsetOfFirstTimeslot: 0,

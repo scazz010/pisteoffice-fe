@@ -1,7 +1,7 @@
-<div class="{{styles.row}}">
-  <div class="{{styles.instructor}}">{{instructor.name}}</div>
+<div local-class="row" class="instructor-row">
+  <div local-class="instructor">{{instructor.name}}</div>
   {{#each timePeriods as |timePeriod|}}
-    <div class="{{styles.timePeriod}} timePeriod"> </div>
+    <div local-class="timePeriod {{if (eq timePeriod.isFirstOfDay true) "firstTimePeriodOfDay"}}" class="timePeriod"> </div>
   {{/each}}
 
   {{#each lessons as |lesson|}}

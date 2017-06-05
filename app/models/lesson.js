@@ -7,6 +7,7 @@ export default Model.extend({
   instructor: belongsTo('instructor'),
   startTime: attr('moment'),
   endTime: attr('moment'),
+  category: belongsTo('lesson-category'),
 
   duration: computed('startTime', 'endTime', function() {
     const startTime = this.get('startTime');
