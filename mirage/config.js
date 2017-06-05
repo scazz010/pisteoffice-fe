@@ -21,7 +21,12 @@ export default function() {
   });
   this.get('lessons/:id');
 
-  this.get('lesson-types');
+  this.get('lesson-levels');
+  this.get('lesson-levels/:id');
+  this.get('lesson-categories');
+  this.get('lesson-categories/:id');
+  this.get('lesson-plans');
+  this.get('lesson-plans/:id');
 
   this.get('/users');
   this.get('/users/:id');

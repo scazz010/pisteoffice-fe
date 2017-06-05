@@ -1,0 +1,25 @@
+.trigger-container {
+
+  min-height: 34px;
+  padding: 10px;
+}
+.color-preview {
+  height: 14px;
+  border: 1px solid #999;
+}
+
+.option-container {
+  width: 200px;
+  max-height: 200px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.option {
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+  cursor: pointer;
+  margin: 2px 2px;
+  flex-shrink: 0;
+}

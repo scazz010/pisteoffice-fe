@@ -1,0 +1,14 @@
+{{#basic-dropdown registerAPI=(action "registerAPI") as |dd|}}
+  {{#dd.trigger}}
+    <div local-class="color-preview" style="background-color: {{color}}"></div>
+  {{/dd.trigger}}
+
+  {{#dd.content}}
+    <div local-class="option-container">
+      {{#each availableColors as |colorOption|}}
+        <div local-class="option" style="background-color: {{colorOption}}" onClick={{action "onChange" colorOption}}></div>
+      {{/each}}
+    </div>
+
+  {{/dd.content}}
+{{/basic-dropdown}}

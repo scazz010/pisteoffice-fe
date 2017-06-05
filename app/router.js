@@ -21,9 +21,14 @@ Router.map(function() {
         this.route('new');
         this.route('edit', { path: '/:instructor_id' });
       });
-      this.route('lessonTypes', { path: '/lesson-types'}, function () {
+      this.route('lesson', { path: '/lessons'}, function() {
+        this.route('plans',  function() {});
+        this.route('categories',  function() {
+          this.route('edit', { path: '/:category_id' });
+        });
+        this.route('levels',  function() {});
+      })
 
-      });
     });
   });
 });

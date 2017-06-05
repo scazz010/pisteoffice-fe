@@ -34,6 +34,11 @@ export default function(server) {
     });
   }
 
-  server.loadFixtures('lesson-types');
+  // const indiv = server.create('lesson-category', {name: 'individual'});
+  // server.create('lesson-plan', {lessonCategory_id: indiv.id, name: 'test plan'});
+
+  server.loadFixtures('lesson-plans');
+  server.loadFixtures('lesson-categories');
+  server.loadFixtures('lesson-levels');
 
 }

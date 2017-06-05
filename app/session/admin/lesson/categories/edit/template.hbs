@@ -1,0 +1,67 @@
+{{#po-admin/page title=pageTitle as |section|}}
+  {{po-admin/form/buttons/cancel route="session.admin.lesson.categories"}}
+  {{!po-admin/form/buttons/add text="Save" onAdd=onSave}}
+{{/po-admin/page}}
+
+{{#po-admin/form as |form|}}
+  {{#form.row}}
+    {{#form.label}}Name:{{/form.label}}
+    {{#form.inputContainer}}
+      {{input class="form-control" value=changeset.name}}
+    {{/form.inputContainer}}
+  {{/form.row}}
+
+  {{#form.row}}
+    {{#form.label}}Lesson type:{{/form.label}}
+    {{#form.inputContainer}}
+      {{#power-select
+        options=lessonClassOptions
+        selected=changeset.lessonClass
+        searchEnabled=false
+        onchange=(action (mut changeset.lessonClass))
+        as |lessonType|
+      }}
+        {{lessonType}}
+      {{/power-select}}
+    {{/form.inputContainer}}
+  {{/form.row}}
+
+  <div class="seperator"><br></div>
+
+  {{#if (eq "GROUP" changeset.lessonClass)}}
+    {{#form.row}}
+      {{#form.label}}Min attendees:{{/form.label}}
+      {{#form.inputContainer}}
+        {{input class="form-control" value=changeset.minAttendees}}
+      {{/form.inputContainer}}
+    {{/form.row}}
+
+    {{#form.row}}
+      {{#form.label}}Max attendees:{{/form.label}}
+      {{#form.inputContainer}}
+        {{input class="form-control" value=changeset.maxAttendees}}
+      {{/form.inputContainer}}
+    {{/form.row}}
+  {{/if}}
+{{/po-admin/form}}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Level</th>
+      <th>Description</th>
+      <th>Color</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each category.lessonLevels as |level|}}
+      <tr>
+        <td>{{level.level}}</td>
+        <td>{{level.description}}</td>
+        <td>{{po-utils/color-chooser color=level.color onChange=(action "onLevelColorChange" level)}}</td>
+      </tr>
+
+    {{/each}}
+  </tbody>
+
+</table>

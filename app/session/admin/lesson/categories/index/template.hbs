@@ -1,0 +1,13 @@
+{{#po-admin/page title="Lesson Categories" as |section|}}
+  {{po-admin/form/buttons/generic-link text="Add" route="session.admin.instructors.new"}}
+{{/po-admin/page}}
+
+{{#po-admin/reorderable-list
+  model=categories
+  reorder=(action "reorder")
+  editRoute="session.admin.lesson.categories.edit"
+  emptyMessage="You have no categories yet. To get started, click the add button"
+as |category|}}
+
+  {{category.name}}
+{{/po-admin/reorderable-list}}

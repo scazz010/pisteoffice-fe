@@ -1,9 +1,11 @@
-<div class="{{styles.index}}">
-  <div class="{{styles.sidebar}}">
+<div local-class="index">
+  <div local-class="sidebar">
     {{po-admin/sidebar}}
   </div>
 
-  <div class="{{styles.content}}">
+  <div local-class="wrapper">
+  <div local-class="content">
     {{outlet}}
+  </div>
   </div>
 </div>

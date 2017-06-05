@@ -1,0 +1,26 @@
+{{po-admin/page title="Lesson Plans"}}
+
+  {{#each categories as |category|}}
+    <h4>{{category.name}}</h4>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Levels</th>
+          <th>Max attendees</th>
+          <th>Duration</th>
+        </tr>
+      </thead>
+      <tbody>
+      {{#each category.lessonPlans as |plan|}}
+        <tr>
+          <td>{{plan.name}}</td>
+          <td>{{plan.lessonLevelList}}</td>
+        </tr>
+      {{/each}}
+      </tbody>
+    </table>
+
+    <br />
+  {{/each}}
+
