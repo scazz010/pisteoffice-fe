@@ -5,6 +5,5 @@ export default Component.extend({
   // Params:
   lesson: null,
 
-  // CPs:
-  //lessonCategory: computed('lesson.category.name')
+
 });

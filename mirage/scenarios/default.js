@@ -20,6 +20,9 @@ export default function(server) {
   // server.createList('post', 10);
 
   let instructors = server.createList('instructor', 4);
+  server.loadFixtures('lesson-plans');
+  server.loadFixtures('lesson-categories');
+  server.loadFixtures('lesson-levels');
 
   for (let i=0; i<10; i++) {
     const instructorId =  instructors[ randomNumber(instructors.length) ].id;
@@ -30,15 +33,15 @@ export default function(server) {
     server.create('lesson', {
       instructorId: instructorId,
       startTime: startTime.format(),
-      endTime: endTime.format()
+      endTime: endTime.format(),
+      categoryId: randomElement([1,2,3]),
+      levelId: randomElement([1,2,3,4,5,6,7])
     });
   }
 
   // const indiv = server.create('lesson-category', {name: 'individual'});
   // server.create('lesson-plan', {lessonCategory_id: indiv.id, name: 'test plan'});
 
-  server.loadFixtures('lesson-plans');
-  server.loadFixtures('lesson-categories');
-  server.loadFixtures('lesson-levels');
+
 
 }

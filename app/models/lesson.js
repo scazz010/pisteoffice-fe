@@ -8,6 +8,7 @@ export default Model.extend({
   startTime: attr('moment'),
   endTime: attr('moment'),
   category: belongsTo('lesson-category'),
+  level: belongsTo('lesson-level'),
 
   duration: computed('startTime', 'endTime', function() {
     const startTime = this.get('startTime');

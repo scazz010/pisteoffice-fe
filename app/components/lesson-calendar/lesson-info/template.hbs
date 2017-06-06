@@ -1,1 +1,9 @@
-<h3>{{lesson.category.name}}</h3>
+<h3>
+  <span>{{lesson.category.name}} (Lvl {{lesson.level.level}})</span>
+  {{moment-format lesson.startTime "ddd H:mm"}}-{{moment-format lesson.endTime "h:mm"}}
+</h3>
+
+<h4>Attendees</h4>
+<ul>
+  <li>Attendee 1</li>
+</ul>
