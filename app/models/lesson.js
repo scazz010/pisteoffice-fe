@@ -1,7 +1,7 @@
 import DS from 'ember-data';
 import computed from 'ember-computed';
 
-const { Model, attr, belongsTo } = DS;
+const { Model, attr, belongsTo, hasMany } = DS;
 
 export default Model.extend({
   instructor: belongsTo('instructor'),
@@ -9,6 +9,7 @@ export default Model.extend({
   endTime: attr('moment'),
   category: belongsTo('lesson-category'),
   level: belongsTo('lesson-level'),
+  pupils: hasMany('person'),
 
   duration: computed('startTime', 'endTime', function() {
     const startTime = this.get('startTime');

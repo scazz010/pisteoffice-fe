@@ -5,5 +5,7 @@
 
 <h4>Attendees</h4>
 <ul>
-  <li>Attendee 1</li>
+  {{#each lesson.pupils as |pupil|}}
+    <li>{{pupil.name}}</li>
+  {{/each}}
 </ul>

@@ -36,6 +36,9 @@ export default function() {
   this.post('/instructors'); // make displayOrder the bottom?
   this.patch('/instructors/:id');
 
+  this.get('people');
+  this.get('people/:id');
+
   // These comments are here to help you get started. Feel free to delete them.
 
   /*
