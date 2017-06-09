@@ -1,9 +1,11 @@
+import ResizeAware from 'ember-resize/mixins/resize-aware';
+
 import Component from 'ember-component';
 import computed from 'ember-computed';
 import service from 'ember-service/inject';
 import { task } from 'ember-concurrency';
 
-export default Component.extend({
+export default Component.extend(ResizeAware, {
   // Params
   weekStartDate: null,
   instructors: null,
@@ -12,8 +14,12 @@ export default Component.extend({
   // Services
   store: service(),
 
-  didReceiveAttrs({oldAttrs, newAttrs}) {
+  // State
+  rightOffsetOfLastTimeslot: 0,
+  leftOffsetOfFirstTimeslot: 0,
 
+
+  didReceiveAttrs({oldAttrs, newAttrs}) {
     if (!oldAttrs || oldAttrs.weekStartDate.value !== newAttrs.weekStartDate.value) {
       const weekStartDate = newAttrs.weekStartDate.value;
       const weekEndDate = weekStartDate.clone().add(1, 'week');
@@ -21,6 +27,22 @@ export default Component.extend({
       this.get('updateLessonsFromServer').perform(weekStartDate.toJSON(), weekEndDate.toJSON());
     }
   },
+
+  didInsertElement() {
+    this.setCalendarRowOffsets();
+    this._super(...arguments);
+  },
+  debouncedDidResize() {
+    this.setCalendarRowOffsets();
+  },
+  setCalendarRowOffsets() {
+    const offset = 200 + $(`#${this.get('elementId')}`)[0].getBoundingClientRect().left;
+    this.set('leftOffsetOfFirstTimeslot', offset);
+
+    const rightOffset = $(`#${this.get('elementId')}`)[0].getBoundingClientRect().right;
+    this.set('rightOffsetOfLastTimeslot', rightOffset);
+  },
+
 
   // CPs
   lessonsByInstructorId: computed('cachedLessons.[]', 'weekStartDate', function() {
@@ -88,6 +110,17 @@ export default Component.extend({
     });
 
     return timePeriods;
+  }),
+
+  workingDayDurationInMS: computed.oneWay('account.workingDayDurationInMS'),
+  pxOfCalendar: computed('leftOffsetOfFirstTimeslot', 'rightOffsetOfLastTimeslot', function() {
+    //console.log('recomputing fx of calendar');
+    return this.get('rightOffsetOfLastTimeslot') - this.get('leftOffsetOfFirstTimeslot');
+  }),
+  widthOf1MSInPx: computed('workingDayDurationInMS', 'pxOfCalendar', function() {
+    const workingWeekInMS = this.get('account.workingDayDurationInMS') * 7;
+
+    return this.get('pxOfCalendar') / workingWeekInMS;
   }),
 
   // Tasks
