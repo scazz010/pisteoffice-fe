@@ -1,16 +1,16 @@
-<div class="{{styles.header}}">
-  <div class="{{styles.instructorHeader}}"></div>
+<div local-class="header">
+  <div local-class="instructorHeader"></div>
   {{#each days as |day|}}
-    <div class="{{styles.day}}">{{moment-format day "ddd"}} ({{moment-format day "D MMM" }})</div>
+    <div local-class="day">{{moment-format day "ddd"}} ({{moment-format day "D MMM" }})</div>
   {{/each}}
 </div>
 
-<div class="{{styles.header}}">
-  <div class="{{styles.instructorHeader}}">Instructor</div>
+<div local-class="header">
+  <div local-class="instructorHeader">Instructor</div>
   {{#each days as |day|}}
     {{#each hourHeaders as |hourHeader|}}
-      <div class="{{styles.hour}}">{{hourHeader}}</div>
+      <div local-class="hour">{{hourHeader}}</div>
     {{/each}}
-    <div class="{{styles.hiddenHour}}"></div>
+    <div local-class="hiddenHour"></div>
   {{/each}}
 </div>
