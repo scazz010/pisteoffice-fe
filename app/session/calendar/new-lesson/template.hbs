@@ -1,0 +1,31 @@
+{{#modal-dialog translucentOverlay=true onClose=(action 'onClose')}}
+  <h4>New Lesson</h4>
+
+  <h3>Lesson Details</h3>
+
+  Instructor:
+  {{#power-select
+    options=model.instructors
+    onchange=(action (mut model.lesson.instructor))
+    selected=model.lesson.instructor
+    as |instructor|}}
+    {{instructor.name}}
+  {{/power-select}}
+
+  Lesson type:
+  {{#power-select
+    options=model.categories
+    onchange=(action (mut model.lesson.category))
+    selected=model.lesson.category
+    as |category|
+  }}
+    {{category.name}}
+    {{/power-select}}
+
+  <h3>Clients</h3>
+
+  Name: {{input class="form-control"}}
+
+  <buton {{action "undo"}}>Undo</buton>
+
+{{/modal-dialog}}

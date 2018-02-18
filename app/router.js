@@ -14,6 +14,7 @@ Router.map(function() {
 
     this.route('calendar', { path: '/'}, function() {
       this.route('info', { path: '/:lesson_id'});
+      this.route('new-lesson');
     });
 
     this.route('admin', function() {

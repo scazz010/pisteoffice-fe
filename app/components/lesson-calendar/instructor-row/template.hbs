@@ -1,7 +1,9 @@
 <div local-class="row" class="instructor-row">
   <div local-class="instructor">{{instructor.name}}</div>
   {{#each timePeriods as |timePeriod|}}
-    <div local-class="timePeriod {{if (eq timePeriod.isFirstOfDay true) "firstTimePeriodOfDay"}}" class="timePeriod"> </div>
+      <div local-class="timePeriod {{if (eq timePeriod.isFirstOfDay true) "firstTimePeriodOfDay"}}" class="timePeriod">
+        {{#link-to "session.calendar.new-lesson" (query-params instructor=instructor.id) local-class="new-lesson-link"}}{{/link-to}}
+      </div>
   {{/each}}
 
   {{#each lessons as |lesson|}}

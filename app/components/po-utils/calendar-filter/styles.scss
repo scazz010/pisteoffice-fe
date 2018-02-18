@@ -1,0 +1,19 @@
+.filter {
+  display: inline-block;
+  width: 300px;
+}
+
+.option {
+  width: 300px;
+  font-size: 18px;
+  padding: 10px 15px;
+  min-height: 40px;
+  font-weight: bold;
+  color: white;
+  background-color: #2e6da4;
+  cursor: pointer;
+
+  &:hover:not(.placeholder) {
+    background-color: #4f5ca4;
+  }
+}

@@ -1,9 +1,12 @@
 .row {
   display: flex;
+  line-height: 26px;
+  height: 26px;
+  font-size: 16px;
 }
 
 .instructor {
-  flex: 0 0 200px;
+  flex: 0 0 190px;
   border-right: solid 1px #aaa;
 }
 
@@ -12,7 +15,6 @@
   width: 100%;
   border-top: solid 1px #aaa;
   border-right: solid 1px #aaa;
-  height: 22px;
 
   &:nth-child(2n) {
   }
@@ -20,4 +22,9 @@
 
 .firstTimePeriodOfDay {
   border-left: 1px solid #aaa;
+}
+
+.new-lesson-link {
+  display: block;
+  height: 100%;
 }

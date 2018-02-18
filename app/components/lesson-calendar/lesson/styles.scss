@@ -1,8 +1,13 @@
 .lesson {
   position: absolute;
-  height: 22px;
+  margin-top: 1px;
+  height: 25px;
   background-color: red;
-  opacity: 0.8;
+  border-radius: 10px;
+}
+
+.lesson--group {
+  background-color: blue;
 }
 
 :global(a.active) {

@@ -1,0 +1,23 @@
+<div local-class="filter">
+{{#basic-dropdown registerAPI=(action "registerAPI") as |dd|}}
+  {{#dd.trigger}}
+    {{#if selected}}
+      <div local-class="trigger option">{{selected}}</div>
+    {{else}}
+      <div local-class="trigger option placeholder">{{placeholder}}</div>
+    {{/if}}
+  {{/dd.trigger}}
+
+  {{#dd.content}}
+    <div local-class="option-container">
+      {{#if option}}
+      <div local-class="option" onClick={{action "onChange" null}}></div>
+      {{/if}}
+
+      {{#each options as |option|}}
+        <div local-class="option" onClick={{action "onChange" option}}>{{option}}</div>
+      {{/each}}
+    </div>
+  {{/dd.content}}
+{{/basic-dropdown}}
+</div>

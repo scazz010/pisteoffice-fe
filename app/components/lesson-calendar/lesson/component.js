@@ -43,5 +43,9 @@ export default Component.extend({
 
   lessonStyle: computed('offset', 'width', function() {
     return Ember.String.htmlSafe("left: " + this.get('offset') + "px; width: " + this.get('width') + "px");
+  }),
+
+  isGroupLesson: computed('lesson.category.lessonClass', function () {
+    return this.get('lesson.category.lessonClass') === 'GROUP';
   })
 });

@@ -5,6 +5,6 @@ export default Factory.extend({
     return i;
   },
 
-  name: faker.name.findName,
+  name() { return `${faker.name.firstName()} ${faker.name.lastName()}`; },
   email: faker.internet.email
 });

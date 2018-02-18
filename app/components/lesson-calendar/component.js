@@ -61,7 +61,9 @@ export default Component.extend(ResizeAware, {
       //return lessonStart && lessonStart.isAfter(weekStartDate) && lessonStart.isBefore(weekEndDate);
     }).forEach(lesson => {
       const instructorId = lesson.get('instructor.id');
-      lessons[instructorId].pushObject(lesson);
+      if (instructorId) {
+        lessons[instructorId].pushObject(lesson);
+      }
     });
 
     return lessons || {};
